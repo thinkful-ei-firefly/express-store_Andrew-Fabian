@@ -6,10 +6,12 @@ const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 
 const app = express()
+app.use(morgan('dev'));
+app.use(express.json());
 
 const morganOption = (NODE_ENV === 'production')
-    ? 'tiny'
-    : 'common';
+  ? 'tiny'
+  : 'common';
 
 app.use(morgan(morganOption))
 app.use(helmet())
@@ -19,15 +21,24 @@ app.get('/', (req, res) => {
   res.send('Hello, world!');
 })
 
+app.post('/', (req, res) => {
+  console.log(req.body);
+  if (req.body.name) {
+    console.log(req.body.name);
+  }
+  res
+    .send('POST request received.');
+})
+
 app.use(function errorHandler(error, req, res, next) {
-   let response
-   if (NODE_ENV === 'production') {
-     response = { error: { message: 'server error' } }
-   } else {
-     console.error(error)
-     response = { message: error.message, error }
-   }
-   res.status(500).json(response)
- })
+  let response
+  if (NODE_ENV === 'production') {
+    response = { error: { message: 'server error' } }
+  } else {
+    console.error(error)
+    response = { message: error.message, error }
+  }
+  res.status(500).json(response)
+})
 
 module.exports = app
