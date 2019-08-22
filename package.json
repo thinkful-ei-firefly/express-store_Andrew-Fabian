@@ -1,7 +1,7 @@
 {
-  "name": "express-boilerplate",
+  "name": "express-store_Andrew-Fabian",
   "version": "1.0.0",
-  "description": "Project Boilerplate",
+  "description": "8-22 / Andrew Jessen-Tyler and Fabian Lema-Canar / POST and DELETE requests",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",

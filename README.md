@@ -1,5 +1,5 @@
-# boilerplate_Andrew-Fabian
- 8-22 / Andrew Jessen-Tyler and Fabian Lema-Canar / Project Boilerplate
+# express-store_Andrew-Fabian
+8-22 / Andrew Jessen-Tyler and Fabian Lema-Canar / POST and DELETE requests
 
 
 # Express Boilerplate!
